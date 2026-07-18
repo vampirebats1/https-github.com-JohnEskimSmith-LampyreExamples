@@ -1,10 +1,16 @@
 {
   "mcpServers": {
     "lampyre": {
-      "type": "http",
-      "url": "https://account.lampyre.io/api/v2/mcp",
-      "headers": {
-        "Authorization": "Bearer ${LAMPYRE_TOKEN}"
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://account.lampyre.io/api/v2/mcp",
+        "--header",
+        "Authorization:${AUTH_HEADER}"
+      ],
+      "env": {
+        "AUTH_HEADER": "Bearer ${LAMPYRE_TOKEN}"
       }
     }
   }

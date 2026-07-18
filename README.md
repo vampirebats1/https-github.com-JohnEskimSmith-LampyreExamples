@@ -1,7 +1,14 @@
 # Lampyre MCP setup
 
 This repo ships a project-scoped MCP configuration (`.mcp.json`) that connects
-Claude Code to the Lampyre API over HTTP.
+Claude Code to the Lampyre API through the [`mcp-remote`](https://www.npmjs.com/package/mcp-remote)
+stdio bridge (requires Node.js/`npx`).
+
+The Lampyre endpoint is `https://account.lampyre.io/api/v2/mcp`; `mcp-remote`
+proxies it as a local stdio server and passes your API token via the
+`Authorization` header. The `Authorization:${AUTH_HEADER}` form (no space
+after the colon) is intentional — it works around argument-splitting issues
+with header values that contain spaces.
 
 ## Setup
 
@@ -25,4 +32,4 @@ variable — the token itself is never committed to the repo.
    claude mcp list
    ```
 
-   It should report `lampyre: https://account.lampyre.io/api/v2/mcp (HTTP) - Connected`.
+   It should report the `lampyre` server as Connected.
