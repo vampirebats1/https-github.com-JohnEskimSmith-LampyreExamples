@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "lampyre": {
+      "type": "http",
+      "url": "https://account.lampyre.io/api/v2/mcp",
+      "headers": {
+        "Authorization": "Bearer ${LAMPYRE_TOKEN}"
+      }
+    }
+  }
+}
